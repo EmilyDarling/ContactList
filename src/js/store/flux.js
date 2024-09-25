@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			getAllContacts: () => {
 				const store = getStore();
-				fetch('https://playground.4geeks.com/contact/agendas/AngeRenf/contacts')
+				fetch('https://playground.4geeks.com/contact/agendas/angerenf/contacts')
 				.then(response => {
 					if (!response.ok) {
 						throw Error(response.statusText);
@@ -29,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			updateContact: (newName, newPhone, newEmail,newAddress, id) =>{
-				const store = getStore();
+				
 				var updatedContactInfo = 
 				{
 				   "name": newName,
@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				 };
 				 
 
-					fetch(`https://playground.4geeks.com/contact/agendas/AngeRenf/contacts/${id}`, {
+					fetch(`https://playground.4geeks.com/contact/agendas/angerenf/contacts/${id}`, {
 					method: 'PUT', 
 					body: JSON.stringify(updatedContactInfo), // data can be a 'string' or an {object} which comes from somewhere further above in our application
 					headers: {
@@ -54,13 +54,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(response => console.log('Success:', response))
 					.catch(error => console.error(error));			
-								
+					
+					
 		   },
 
 
 		   deleteContact: (id) => {
-
-			fetch(`https://playground.4geeks.com/contact/agendas/AngeRenf/contacts/${id}`, {
+			const actions = getActions();
+			fetch(`https://playground.4geeks.com/contact/agendas/angerenf/contacts/${id}`, {
 				method: 'DELETE', 
 				headers: {
 					'Content-Type': 'application/json'
@@ -73,7 +74,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.then(response => console.log('Success:', response))
 				.catch(error => console.error(error));	
-		
+			
+				actions.getAllContacts();
+		},
+
+		findContact(id){
+			const store = getStore();
+			return store.contacts.find((element) => element.id == id);
 		},
 
 

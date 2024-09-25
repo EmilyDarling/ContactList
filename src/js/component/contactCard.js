@@ -16,7 +16,7 @@ export const ContactCard = (props) => {
                     </div>
                     <div className="col-12 col-sm-6 col-md-9 text-center text-sm-left" >
                         <div className=" float-right">
-                            <button className="btn" onClick={() => navigate(`/updateContact/${props.ind}`)}><i className="fas fa-pencil-alt mr-3"></i></button>
+                            <button className="btn" onClick={() => navigate(`/updateContact/${id}`)}><i className="fas fa-pencil-alt mr-3"></i></button>
                             <button className="btn" onClick={() => actions.deleteContact(id)}><i className="fas fa-trash-alt"></i></button>
                         </div>
                         <label className="name lead">{props.contact.name}</label>

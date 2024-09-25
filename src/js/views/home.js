@@ -11,6 +11,7 @@ export const Home = () => {
 
 	useEffect(() => {
 		actions.getAllContacts();
+        
 
 	}, []);
 

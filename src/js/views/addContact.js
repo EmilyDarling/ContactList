@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate} from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
-export const AppContact = () => {
+export const AddContact = () => {
 	const { store, actions, setStore } = useContext(Context);
     let {contactid} = useParams();
     let contactIndex = parseInt(contactid);
