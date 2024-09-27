@@ -6,17 +6,16 @@ import { Context } from "../store/appContext";
 
 export const AddContact = () => {
 	const { store, actions, setStore } = useContext(Context);
-    let {contactid} = useParams();
-    let contactIndex = parseInt(contactid);
-	let newName = store.contacts[contactIndex].name,
-	 newEmail = store.contacts[contactIndex].email,
-	 newPhone = store.contacts[contactIndex].phone,
-	  newAddress = store.contacts[contactIndex].address;
+    
+	let newName = "",
+	 newEmail = "",
+	 newPhone = "",
+	  newAddress = "";
 
 	const navigate = useNavigate();
 	const submit = () =>{
-		actions.updateContact(newName, newPhone, newEmail, newAddress, parseInt(store.contacts[contactIndex].id)); 
-		//navigate("/");
+		actions.addNewContact(newName, newPhone, newEmail, newAddress); 
+		navigate("/");
 	}
 
 	return (
@@ -26,22 +25,22 @@ export const AddContact = () => {
 			<form>
 				<div className="form-group">
 					<label>Full Name</label>
-					<input type="text" className="form-control" placeholder={store.contacts[contactIndex].name} 
+					<input type="text" className="form-control"  
 					onChange= {(e)=> newName=e.target.value} />
 				</div>
 				<div className="form-group">
 					<label>Email</label>
-					<input type="email" className="form-control" placeholder={store.contacts[contactIndex].email} 
-					onChange= {(e)=> newEmail=e.target.value}/>
+					<input type="email" className="form-control"
+					onChange= {(e)=> newEmail=e.target.value}/> 
 				</div>
 				<div className="form-group">
 					<label>Phone</label>
-					<input type="phone" className="form-control" placeholder={store.contacts[contactIndex].phone} 
+					<input type="phone" className="form-control" 
 					onChange= {(e)=> newPhone=e.target.value}/>
 				</div>
 				<div className="form-group">
 					<label>Address</label>
-					<input type="text" className="form-control" placeholder={store.contacts[contactIndex].address} 
+					<input type="text" className="form-control" 
 					onChange= {(e)=> newAddress=e.target.value}/>
 				</div>
 				<button type="button" className="btn btn-primary form-control" onClick= {()=> submit()}>save</button>

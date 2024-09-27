@@ -25,12 +25,12 @@ export const Home = () => {
                         <ul className="list-group pull-down" id="contact-list">
                             {/* <ContactCard onDelete={() => this.setState({ showModal: true})} /> */}
                             {store.contacts.map((aContact,index) =>  
-							<ContactCard ind={index} contact={aContact}/>)}
+							<ContactCard ind={index} contact={aContact} />)}
                             
                         </ul>
                     </div>
                 </div>
-                {/* <Modal show={this.state.showModal} onClose={() => this.setState({showModal: false})} /> */}
+                 <Modal /> 
             </div>
 	);
 };

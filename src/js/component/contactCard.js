@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 import { Context } from '../store/appContext.js';
 
 export const ContactCard = (props) => {
-    const { actions,store } = useContext(Context);
+    const { actions,store} = useContext(Context);
     const navigate = useNavigate();
     let id = parseInt(props.contact.id);
 
+   const onDelete= () =>{
+    actions.setShowModal(true);
+    actions.setContactID(id);
+    }
         return (
             <li className="list-group-item" key={props.ind}>
                 <div className="row w-100">
@@ -17,7 +21,7 @@ export const ContactCard = (props) => {
                     <div className="col-12 col-sm-6 col-md-9 text-center text-sm-left" >
                         <div className=" float-right">
                             <button className="btn" onClick={() => navigate(`/updateContact/${id}`)}><i className="fas fa-pencil-alt mr-3"></i></button>
-                            <button className="btn" onClick={() => actions.deleteContact(id)}><i className="fas fa-trash-alt"></i></button>
+                            <button className="btn" onClick={() => onDelete()}><i className="fas fa-trash-alt"></i></button>
                         </div>
                         <label className="name lead">{props.contact.name}</label>
                         <br /> 
