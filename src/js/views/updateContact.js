@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams, useNavigate} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
@@ -15,10 +15,10 @@ export const UpdateContact = () => {
 	  newAddress = contactToUpdate.address;
 	
 
-	const navigate = useNavigate();
+
 	const submit = () =>{
 		actions.updateContact(newName, newPhone, newEmail, newAddress, contactIndex); 
-		//navigate("/");
+		
 	}
 
 	return (

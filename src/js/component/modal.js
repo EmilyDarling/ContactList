@@ -19,13 +19,7 @@ export const Modal = (props) => {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Are you sure?</h5>
-                        {/* { (props.onClose) ?
-                             <button onClick={() => actions.deleteContact(props.id)} type="button" className="close" data-dismiss="modal" aria-label="Close">Yes</button>
-                            <button  type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            :''
-                        } */}
+                        
                     </div>
                     <div className="modal-body">
                         <p>If you delete this thing the entire universe will go down!</p>
